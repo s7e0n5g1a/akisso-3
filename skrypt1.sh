@@ -2,13 +2,13 @@
 
 
 
-for i in `seq 1 100`
+for i in `seq 1 1`
 do
-       pobieranie_1=`cat /proc/net/dev | head -n 3| tail -n 1 | tr -s ' ' | cut -d " " -f 2`
-	wysylanie_1=`cat /proc/net/dev | head -n 3| tail -n 1 | tr -s ' ' | cut -d " " -f 10`
+	pobieranie_1=`echo | grep -w -i wlp2s0 /proc/net/dev | tr -s ' '| cut -d " " -f 2`		
+	wysylanie_1=`echo | grep -w -i wlp2s0 /proc/net/dev | tr -s ' '| cut -d " " -f 10`
 	sleep 1
-	pobieranie_2=`cat /proc/net/dev | head -n 3| tail -n 1 | tr -s ' ' | cut -d " " -f 2`
-	wysylanie_2=`cat /proc/net/dev | head -n 3| tail -n 1 | tr -s ' ' | cut -d " " -f 10`
+	pobieranie_2=`echo | grep -w -i wlp2s0 /proc/net/dev | tr -s ' '| cut -d " " -f 2`
+	wysylanie_2=`echo | grep -w -i wlp2s0 /proc/net/dev | tr -s ' '| cut -d " " -f 10`
 	roznica_pobierania=$((pobieranie_2 - pobieranie_1))
 	roznica_wysylania=$((wysylanie_2 - wysylanie_1))
 	echo "Tempo pobierania: " | tr -d '\n'
@@ -46,5 +46,6 @@ do
 	echo "Obciążenie systemu wynosi: " | tr -d '\n'
 	cat /proc/loadavg | cut -d " " -f 1
 	echo
+
 done
 	
