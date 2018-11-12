@@ -2,11 +2,12 @@
 
 
 
-for i in `seq 1 1`
+for i in `seq 1 100`
 do
 	pobieranie_1=`echo | grep -w -i wlp2s0 /proc/net/dev | tr -s ' '| cut -d " " -f 2`		
 	wysylanie_1=`echo | grep -w -i wlp2s0 /proc/net/dev | tr -s ' '| cut -d " " -f 10`
 	sleep 1
+	clear
 	pobieranie_2=`echo | grep -w -i wlp2s0 /proc/net/dev | tr -s ' '| cut -d " " -f 2`
 	wysylanie_2=`echo | grep -w -i wlp2s0 /proc/net/dev | tr -s ' '| cut -d " " -f 10`
 	roznica_pobierania=$((pobieranie_2 - pobieranie_1))
